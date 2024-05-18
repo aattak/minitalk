@@ -6,7 +6,7 @@
 /*   By: aattak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 13:46:32 by aattak            #+#    #+#             */
-/*   Updated: 2024/05/15 16:05:06 by aattak           ###   ########.fr       */
+/*   Updated: 2024/05/18 19:25:52 by aattak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ pid_t	parse_pid(char *s_pid)
 	}
 	while (ft_isspace(s_pid[i]))
 		i++;
-	if (s_pid[i])
+	if (s_pid[i] || !pid)
 		return (-1);
 	return ((pid_t)pid);
 }
@@ -88,13 +88,13 @@ int	main(int ac, char **av)
 
 	if (ac != 3)
 	{
-		write(1, "./client <Server PID> <Message to send>\n", 40);
+		write(1, "./client_bonus <Server PID> <Message to send>\n", 46);
 		return (1);
 	}
 	s_pid = parse_pid(av[1]);
 	if (s_pid == -1 || av[2][0] == '\0')
 	{
-		write(1, "./client <Server PID> <Message to send>\n", 40);
+		write(1, "./client_bonus <Server PID> <Message to send>\n", 46);
 		return (1);
 	}
 	sa.sa_handler = client_handler;

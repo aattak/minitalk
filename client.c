@@ -6,7 +6,7 @@
 /*   By: aattak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:57:29 by aattak            #+#    #+#             */
-/*   Updated: 2024/05/15 16:05:12 by aattak           ###   ########.fr       */
+/*   Updated: 2024/05/18 19:21:31 by aattak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ pid_t	parse_pid(char *s_pid)
 	}
 	while (ft_isspace(s_pid[i]))
 		i++;
-	if (s_pid[i])
+	if (s_pid[i] || !pid)
 		return (-1);
 	return ((pid_t)pid);
 }
