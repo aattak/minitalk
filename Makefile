@@ -6,7 +6,7 @@
 #    By: aattak <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/15 16:14:22 by aattak            #+#    #+#              #
-#    Updated: 2024/05/18 13:18:21 by aattak           ###   ########.fr        #
+#    Updated: 2024/05/19 15:52:29 by aattak           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@ NAME = $(SERVER) $(CLIENT)
 
 B_NAME = $(B_SERVER) $(B_CLIENT)
 
-C_SERVER = server.c
-C_CLIENT = client.c
+C_SERVER = mandatory/server.c
+C_CLIENT = mandatory/client.c
 
-CB_SERVER = server_bonus.c
-CB_CLIENT = client_bonus.c
+CB_SERVER = bonus/server_bonus.c
+CB_CLIENT = bonus/client_bonus.c
 
 O_SERVER = $(C_SERVER:.c=.o)
 O_CLIENT = $(C_CLIENT:.c=.o)
@@ -39,8 +39,6 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
 all: $(NAME)
-
-$(NAME): $(O_SERVER) $(O_CLIENT)
 
 $(SERVER): $(O_SERVER)
 		$(CC) $(CFLAGS) $(O_SERVER) -o $(SERVER)
